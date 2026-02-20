@@ -1,4 +1,6 @@
 from django.urls import path
+from django.urls import path
+from user.views.webhook import InstagramLeadView, TelegramLeadView, FacebookLeadView
 
 from user.views.lead import OperatorLeadListView, UserLeadListView, UserLeadUpdateView
 from user.views.operator import OperatorListAPIView, OperatorUpdateAPIView, OperatorCreateAPIVieW, OperatorDeleteAPIView
@@ -38,3 +40,12 @@ urlpatterns += [
     path('api/user/lead/update/<int:pk>', UserLeadUpdateView.as_view(), name='user_lead_update'),
 
 ]
+
+# urls.py
+# ================================= Webhook ===================================================
+urlpatterns += [
+    path("webhook/instagram/", InstagramLeadView.as_view(), name="instagram"),
+    path("webhook/telegram/", TelegramLeadView.as_view(), name="telegram"),
+    path("webhook/facebook/", FacebookLeadView.as_view(), name="facebook"),
+]
+

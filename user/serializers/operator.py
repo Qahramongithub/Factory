@@ -1,5 +1,5 @@
 from django.contrib.auth.hashers import make_password
-from rest_framework import serializers, request, status
+from rest_framework import serializers, status
 
 from user.models import User
 
